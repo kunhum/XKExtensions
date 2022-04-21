@@ -1,0 +1,47 @@
+PODS:
+  - SwifterSwift (5.2.0):
+    - SwifterSwift/AppKit (= 5.2.0)
+    - SwifterSwift/CoreAnimation (= 5.2.0)
+    - SwifterSwift/CoreGraphics (= 5.2.0)
+    - SwifterSwift/CoreLocation (= 5.2.0)
+    - SwifterSwift/Dispatch (= 5.2.0)
+    - SwifterSwift/Foundation (= 5.2.0)
+    - SwifterSwift/MapKit (= 5.2.0)
+    - SwifterSwift/SceneKit (= 5.2.0)
+    - SwifterSwift/SpriteKit (= 5.2.0)
+    - SwifterSwift/StoreKit (= 5.2.0)
+    - SwifterSwift/SwiftStdlib (= 5.2.0)
+    - SwifterSwift/UIKit (= 5.2.0)
+  - SwifterSwift/AppKit (5.2.0)
+  - SwifterSwift/CoreAnimation (5.2.0)
+  - SwifterSwift/CoreGraphics (5.2.0)
+  - SwifterSwift/CoreLocation (5.2.0)
+  - SwifterSwift/Dispatch (5.2.0)
+  - SwifterSwift/Foundation (5.2.0)
+  - SwifterSwift/MapKit (5.2.0)
+  - SwifterSwift/SceneKit (5.2.0)
+  - SwifterSwift/SpriteKit (5.2.0)
+  - SwifterSwift/StoreKit (5.2.0)
+  - SwifterSwift/SwiftStdlib (5.2.0)
+  - SwifterSwift/UIKit (5.2.0)
+  - XKExtensions (1.0.0):
+    - SwifterSwift
+
+DEPENDENCIES:
+  - XKExtensions (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - SwifterSwift
+
+EXTERNAL SOURCES:
+  XKExtensions:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SwifterSwift: 334181863c416882d97b7a60c05054d9e4d799e2
+  XKExtensions: 5c3c0e9229cebfad406e7172704034c122db413c
+
+PODFILE CHECKSUM: d5139583586f7016be09babc171b91beb50ec4d2
+
+COCOAPODS: 1.11.3

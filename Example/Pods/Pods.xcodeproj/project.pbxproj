@@ -38,6 +38,7 @@
 		3847BAB6DF5F0613B3BE207660E7F675 /* EdgeInsetsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D16E5D41FC2F4C283F49A12D9F1F47 /* EdgeInsetsExtensions.swift */; };
 		3ADD08CF86ABB521BBBEB9C866626DF7 /* BoolExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301925B0EBD59C6D9065C769BE5D717B /* BoolExtensions.swift */; };
 		3C2713362811495B000EC759 /* XKScrollViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2713352811495B000EC759 /* XKScrollViewExtension.swift */; };
+		3C2DCD12281280B400819576 /* XKURLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2DCD11281280B400819576 /* XKURLExtension.swift */; };
 		3D8B0291E5DD4B0B07FF97AE91337C13 /* FloatingPointExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CC3F47F8526CAEA1BA2E32DD60B263 /* FloatingPointExtensions.swift */; };
 		4065CFB7254DC71A88914BDF9B52714D /* UITextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46F92CDE504F84BBCC7553E0729F530 /* UITextFieldExtensions.swift */; };
 		4431459E8E888D3A6A01A89F952005F3 /* FileManagerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97314B77CD145B8110302963834EC173 /* FileManagerExtensions.swift */; };
@@ -185,6 +186,7 @@
 		3A9E9C0E25252A35B02115A416236BE6 /* UINavigationItemExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UINavigationItemExtensions.swift; path = Sources/SwifterSwift/UIKit/UINavigationItemExtensions.swift; sourceTree = "<group>"; };
 		3BA45F94B5595B314747726C5B9CB5A0 /* SCNSphereExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SCNSphereExtensions.swift; path = Sources/SwifterSwift/SceneKit/SCNSphereExtensions.swift; sourceTree = "<group>"; };
 		3C2713352811495B000EC759 /* XKScrollViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XKScrollViewExtension.swift; sourceTree = "<group>"; };
+		3C2DCD11281280B400819576 /* XKURLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = XKURLExtension.swift; path = XKExtensions/Classes/XKURLExtension.swift; sourceTree = "<group>"; };
 		3D025CA8CF69D749B13FB9A306010AFB /* UIStoryboardExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIStoryboardExtensions.swift; path = Sources/SwifterSwift/UIKit/UIStoryboardExtensions.swift; sourceTree = "<group>"; };
 		3D8D81988ED77701C2FD9D0B197D1889 /* CATransform3DExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CATransform3DExtensions.swift; path = Sources/SwifterSwift/CoreAnimation/CATransform3DExtensions.swift; sourceTree = "<group>"; };
 		439E16B867B1F0E1F78B2D46AD92AC82 /* XKStringExtension+Bussiness.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "XKStringExtension+Bussiness.swift"; sourceTree = "<group>"; };
@@ -521,6 +523,7 @@
 				B95514335356C56A1F30946A075CC10F /* ScrollView */,
 				D1544C3E8740EF697A24E5A544961E53 /* String */,
 				198F3D1C478D881B305C148277F6A253 /* Support Files */,
+				3C2DCD11281280B400819576 /* XKURLExtension.swift */,
 			);
 			name = XKExtensions;
 			path = ../..;
@@ -1032,6 +1035,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAEC067DC2919DCEB6A697AB0F39F3C4 /* NSObjectExtension.swift in Sources */,
+				3C2DCD12281280B400819576 /* XKURLExtension.swift in Sources */,
 				B39DF4BC49A49D3AFA36EC8E639192E1 /* UIViewControllerEntension.swift in Sources */,
 				4483AE6C7DA31F925A5A4DE6C610B48F /* XKDateExtension.swift in Sources */,
 				C64564293B5A99C99E13C55DC2478779 /* XKExtensions-dummy.m in Sources */,

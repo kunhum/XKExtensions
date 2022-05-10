@@ -1,6 +1,6 @@
 {
   "name": "XKExtensions",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "summary": "Swift项目常用Extension",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "hhttps://github.com/kunhum/XKExtensions",
@@ -13,15 +13,32 @@
   },
   "source": {
     "git": "https://github.com/kunhum/XKExtensions.git",
-    "tag": "1.0.0"
+    "tag": "1.0.2"
   },
   "platforms": {
     "ios": "10.0"
   },
-  "source_files": "XKExtensions/Classes/**/*",
-  "dependencies": {
-    "SwifterSwift": [
+  "subspecs": [
+    {
+      "name": "Common",
+      "dependencies": {
+        "SwifterSwift": [
 
-    ]
-  }
+        ]
+      },
+      "source_files": "XKExtensions/Classes/Common/**/*"
+    },
+    {
+      "name": "RxSwift",
+      "dependencies": {
+        "RxSwift": [
+
+        ],
+        "RxCocoa": [
+
+        ]
+      },
+      "source_files": "XKExtensions/Classes/RxSwift/**/*"
+    }
+  ]
 }

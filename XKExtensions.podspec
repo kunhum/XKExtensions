@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'XKExtensions'
-  s.version          = '1.0.2'
+  s.version          = '1.0.3'
   s.summary          = 'Swift项目常用Extension'
 
 # This description is used to generate tags and improve search results.
@@ -30,13 +30,17 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '10.0'
 
-  s.source_files = 'XKExtensions/Classes/**/*'
+  # s.source_files = 'XKExtensions/Classes/**/*'
   
-  # s.resource_bundles = {
-  #   'XKExtensions' => ['XKExtensions/Assets/*.png']
-  # }
+  s.subspec 'Common' do |ss|
+    ss.dependency 'SwifterSwift'
+    ss.source_files = "XKExtensions/Classes/Common/**/*"
+  end
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'SwifterSwift'
+  s.subspec 'RxSwift' do |ss|
+    ss.dependency 'RxSwift'
+    ss.dependency 'RxCocoa'
+    ss.source_files = "XKExtensions/Classes/RxSwift/**/*"
+  end
+
 end

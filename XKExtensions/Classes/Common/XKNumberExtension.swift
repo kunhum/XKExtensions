@@ -13,9 +13,11 @@ let Angle = { arc in
 }
 
 public enum DoubleRoundedUnit: Double {
-    /// 亿
+    ///万亿
+    case trillion = 1_000_000_000_000.0
+    ///亿
     case hundredMillion = 100_000_000.0
-    /// 万
+    ///万
     case tenThousand = 10_000.0
 }
 
@@ -36,7 +38,14 @@ public extension Double {
     }
 
     var unit: String {
-        return fabs(self) >= DoubleRoundedUnit.hundredMillion.rawValue ? "亿" : "万"
+        let value = fabs(self)
+        if value >= DoubleRoundedUnit.trillion.rawValue {
+            return "万亿"
+        } else if value >= DoubleRoundedUnit.hundredMillion.rawValue {
+            return "亿"
+        } else {
+            return "万"
+        }
     }
 
     /// 格式化距离，返回*m，*km
@@ -75,20 +84,17 @@ public extension Double {
     func digitText(_ number: Int, needFormatterPrice: Bool = false) -> String {
         var value = self
         if needFormatterPrice {
-            value = fabs(self) >= 100_000_000.0 ? self / 100_000_000.0 : self / 10_000.0
+            // 万亿
+            if fabs(value) >= DoubleRoundedUnit.trillion.rawValue {
+                value /= DoubleRoundedUnit.trillion.rawValue
+            } else if fabs(value) >= DoubleRoundedUnit.hundredMillion.rawValue {//亿
+                value /= DoubleRoundedUnit.hundredMillion.rawValue
+            } else {//万
+                value /= DoubleRoundedUnit.tenThousand.rawValue
+            }
         }
-        switch number {
-        case 0:
-            return String(format: "%.0f", value)
-        case 1:
-            return String(format: "%.1f", value)
-        case 2:
-            return String(format: "%.2f", value)
-        default:
-            debugPrint("未实现相关方法")
-            return ""
-        }
-
+        let format = "%." + "\(number)" + "f"
+        return String(format: format, value)
     }
 
 }

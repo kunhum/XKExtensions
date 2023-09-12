@@ -1,6 +1,6 @@
 {
   "name": "XKExtensions",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "summary": "Swift项目常用Extension",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "hhttps://github.com/kunhum/XKExtensions",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/kunhum/XKExtensions.git",
-    "tag": "1.0.4"
+    "tag": "1.0.5"
   },
   "platforms": {
     "ios": "10.0"

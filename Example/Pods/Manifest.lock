@@ -30,14 +30,14 @@ PODS:
   - SwifterSwift/StoreKit (5.2.0)
   - SwifterSwift/SwiftStdlib (5.2.0)
   - SwifterSwift/UIKit (5.2.0)
-  - XKExtensions (1.0.4):
-    - XKExtensions/Common (= 1.0.4)
-    - XKExtensions/Constants (= 1.0.4)
-    - XKExtensions/RxSwift (= 1.0.4)
-  - XKExtensions/Common (1.0.4):
+  - XKExtensions (1.0.5):
+    - XKExtensions/Common (= 1.0.5)
+    - XKExtensions/Constants (= 1.0.5)
+    - XKExtensions/RxSwift (= 1.0.5)
+  - XKExtensions/Common (1.0.5):
     - SwifterSwift
-  - XKExtensions/Constants (1.0.4)
-  - XKExtensions/RxSwift (1.0.4):
+  - XKExtensions/Constants (1.0.5)
+  - XKExtensions/RxSwift (1.0.5):
     - RxCocoa
     - RxSwift
 
@@ -60,7 +60,7 @@ SPEC CHECKSUMS:
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   SwifterSwift: 334181863c416882d97b7a60c05054d9e4d799e2
-  XKExtensions: e888c448ebb2d1a88d24ddba1268bb004d07a42e
+  XKExtensions: bc3163be303451e76ac305e5c242152416c2dd35
 
 PODFILE CHECKSUM: d5139583586f7016be09babc171b91beb50ec4d2
 

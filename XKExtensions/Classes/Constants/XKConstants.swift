@@ -29,6 +29,8 @@ public struct XKConstants {
     
     public static let navigationAndStatusBarHeight = statusBarHeight + navigationBarHeight
     
+    public static let tabBarHeight = 48.0
+    
     public static let safeAreaInsets: UIEdgeInsets = {
         var areaInsets: UIEdgeInsets = .zero
         if #available(iOS 13.0, *),

@@ -117,3 +117,25 @@ public extension UIViewController {
     }
 
 }
+
+public extension UIViewController {
+    class func visible() -> UIViewController? {
+        guard let controller = UIApplication.shared.delegate?.window??.rootViewController else { return nil }
+        return visible(from: controller)
+    }
+    
+    class func visible(from controller: UIViewController) -> UIViewController {
+        if let pController = controller.presentedViewController {
+            return visible(from: pController)
+        }
+        if let controller = controller as? UITabBarController,
+           let selectedVC = controller.selectedViewController {
+            return visible(from: selectedVC)
+        }
+        if let navC = controller as? UINavigationController,
+           let vc = navC.visibleViewController {
+            return visible(from: vc)
+        }
+        return controller
+    }
+}

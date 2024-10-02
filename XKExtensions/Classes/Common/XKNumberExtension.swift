@@ -98,3 +98,35 @@ public extension Double {
     }
 
 }
+
+public extension Int64 {
+    func date() -> Date {
+        return Date(timeIntervalSince1970: TimeInterval(self))
+    }
+}
+
+public extension Int32 {
+    func date() -> Date {
+        return Int64(self).date()
+    }
+}
+
+public extension Int {
+    func date() -> Date {
+        return Int64(self).date()
+    }
+    func format(digits: Int = 0) -> String {
+        return Double(self).format(digits: digits)
+    }
+}
+
+public extension Double {
+    
+    func date() -> Date {
+        return Date(timeIntervalSince1970: self)
+    }
+    
+    func format(digits: Int = 2) -> String {
+        return String(format: "%.\(digits)f", self)
+    }
+}

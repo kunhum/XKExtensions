@@ -11,6 +11,11 @@ import Foundation
 let Angle = { arc in
     return Double.pi / 180.0 * arc
 }
+/// 返回导航栏高度+输入的高度
+public func xk_translucentTop(_ margin: Double = 0) -> Double {
+    return XKCommonHelper.navigationAndStatusBarHeight + margin
+}
+
 
 public enum DoubleRoundedUnit: Double {
     ///万亿

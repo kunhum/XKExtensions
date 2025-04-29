@@ -28,3 +28,10 @@ public extension NSObject {
     }
 
 }
+
+public extension UIBarButtonItem {
+    func set(titleAttributes: [NSAttributedString.Key: Any]) {
+        setTitleTextAttributes(titleAttributes, for: .normal)
+        setTitleTextAttributes(titleAttributes, for: .highlighted)
+    }
+}

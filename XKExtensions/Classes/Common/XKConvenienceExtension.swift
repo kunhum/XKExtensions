@@ -90,11 +90,26 @@ public extension UITextField {
 }
 
 public extension UIView {
-    convenience init(backgroundColor: UIColor, cornerRadius: Double? = nil) {
+    convenience init(backgroundColor: UIColor? = nil,
+                     cornerRadius: Double? = nil,
+                     borderWidth: Double? = nil,
+                     borderColor: UIColor? = nil,
+                     tag: Int? = nil) {
         self.init()
-        self.backgroundColor = backgroundColor
+        if let bg = backgroundColor {
+            self.backgroundColor = bg
+        }
         if let cornerRadius = cornerRadius {
             self.cornerRadius = cornerRadius
+        }
+        if let width = borderWidth {
+            self.borderWidth = width
+        }
+        if let color = borderColor {
+            self.borderColor = color
+        }
+        if let tag = tag {
+            self.tag = tag
         }
     }
 }

@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Photos
 
 public class XKGradientLayer: CAGradientLayer {}
 
@@ -104,6 +105,36 @@ public extension UIView {
         label.isHidden = text.isNilOrEmpty
         return stackView
     }
+    
+    /// save view as image
+    func saveImage(callback: ((_ result: Bool) -> Void)?) {
+        
+        UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, 0)
+        defer {
+            UIGraphicsEndImageContext()
+        }
+        guard let context = UIGraphicsGetCurrentContext() else {
+            callback?(false)
+            return
+        }
+        layer.render(in: context)
+        guard let image = UIGraphicsGetImageFromCurrentImageContext() else {
+            callback?(false)
+            return
+        }
+        
+        PHPhotoLibrary.requestAuthorization { status in
+            guard status == .authorized else {
+                callback?(false)
+                return
+            }
+            PHPhotoLibrary.shared().performChanges {
+                PHAssetChangeRequest.creationRequestForAsset(from: image)
+            } completionHandler: { result, _ in
+                callback?(result)
+            }
+        }
+    }
 }
  
 public extension UITextField {
@@ -137,7 +168,10 @@ public extension UIButton {
         let labelHeight = labelSize?.height ?? 1
         
         // image中心移动的x距离
-        let imageOffsetX = (imageWidth + labelWidth) / 2 - imageWidth
+        var imageOffsetX = (imageWidth + labelWidth) / 2 - imageWidth
+        if contentHorizontalAlignment == .center {
+            imageOffsetX = (imageWidth + labelWidth) / 2 - imageWidth*0.5
+        }
         // image中心移动的y距离
         let imageOffsetY = labelHeight / 2 + spacing
         // label中心移动的x距离

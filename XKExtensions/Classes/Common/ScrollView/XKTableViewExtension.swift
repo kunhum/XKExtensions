@@ -9,6 +9,17 @@ import Foundation
 
 public extension UITableView {
     
+    class func setupCommonConfigration() {
+        let appearance = UITableView.appearance()
+        appearance.separatorStyle = .none
+        appearance.backgroundColor = .clear
+        appearance.separatorColor = .xkSeparator
+        if #available(iOS 15.0, *) {
+            appearance.sectionHeaderTopPadding = 0
+        }
+        
+    }
+    
     /// 更新数据
     /// - Parameters:
     ///   - datas: 需要插入的数据

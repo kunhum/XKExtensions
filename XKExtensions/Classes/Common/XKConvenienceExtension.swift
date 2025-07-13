@@ -13,7 +13,10 @@ public extension UILabel {
                      font: UIFont = .xk_pingFangSC(size: 15),
                      color: UIColor? = .init(hexString: "333333"),
                      alignment: NSTextAlignment = .left,
-                     lines: Int = 1) {
+                     lines: Int = 1,
+                     backgroundColor: UIColor? = nil,
+                     cornerRadius: Double? = nil,
+                     translatesAutoresizingMaskIntoConstraints: Bool = false) {
         self.init()
         
         self.text = text
@@ -21,6 +24,13 @@ public extension UILabel {
         self.textColor = color
         self.textAlignment = alignment
         self.numberOfLines = lines
+        self.translatesAutoresizingMaskIntoConstraints = translatesAutoresizingMaskIntoConstraints
+        if let backgroundColor {
+            self.backgroundColor = backgroundColor
+        }
+        if let cornerRadius {
+            self.cornerRadius = cornerRadius
+        }
     }
 }
 
@@ -37,7 +47,8 @@ public extension UIButton {
                      backgroundColor: UIColor? = nil,
                      cornerRadius: Double? = nil,
                      borderWidth: Double? = nil,
-                     borderColor: UIColor? = nil) {
+                     borderColor: UIColor? = nil,
+                     translatesAutoresizingMaskIntoConstraints: Bool = false) {
         self.init(type: type)
         setTitle(title, for: .normal)
         if let title = selectedTitle {
@@ -71,6 +82,7 @@ public extension UIButton {
         if let color = borderColor {
             layer.borderColor = color.cgColor
         }
+        self.translatesAutoresizingMaskIntoConstraints = translatesAutoresizingMaskIntoConstraints
     }
 }
 
@@ -79,13 +91,17 @@ public extension UITextField {
                      textColor: UIColor = .firstText,
                      font: UIFont = .xk_pingFangSC(size: 16),
                      placeholder: NSAttributedString? = nil,
-                     clearButtonMode: UITextField.ViewMode = .never) {
+                     clearButtonMode: UITextField.ViewMode = .never,
+                     alignment: NSTextAlignment = .left,
+                     translatesAutoresizingMaskIntoConstraints: Bool = false) {
         self.init()
         self.text = text
         self.textColor = textColor
         self.font = font
         self.attributedPlaceholder = placeholder
         self.clearButtonMode = clearButtonMode
+        self.textAlignment = alignment
+        self.translatesAutoresizingMaskIntoConstraints = translatesAutoresizingMaskIntoConstraints
     }
 }
 
@@ -94,7 +110,8 @@ public extension UIView {
                      cornerRadius: Double? = nil,
                      borderWidth: Double? = nil,
                      borderColor: UIColor? = nil,
-                     tag: Int? = nil) {
+                     tag: Int? = nil,
+                     translatesAutoresizingMaskIntoConstraints: Bool = false) {
         self.init()
         if let bg = backgroundColor {
             self.backgroundColor = bg
@@ -111,6 +128,7 @@ public extension UIView {
         if let tag = tag {
             self.tag = tag
         }
+        self.translatesAutoresizingMaskIntoConstraints = translatesAutoresizingMaskIntoConstraints
     }
 }
 
@@ -122,7 +140,8 @@ public extension UITableView {
                      backgroundColor: UIColor = .white,
                      separatorColor: UIColor = .xkSeparator,
                      separatorInset: UIEdgeInsets? = nil,
-                     separatorStyle: UITableViewCell.SeparatorStyle? = nil) {
+                     separatorStyle: UITableViewCell.SeparatorStyle? = nil,
+                     translatesAutoresizingMaskIntoConstraints: Bool = false) {
         
         self.init(frame: .zero, style: style)
         self.delegate = delegate
@@ -142,5 +161,6 @@ public extension UITableView {
         if #available(iOS 11.0, *) {
             contentInsetAdjustmentBehavior = .never
         }
+        self.translatesAutoresizingMaskIntoConstraints = translatesAutoresizingMaskIntoConstraints
     }
 }

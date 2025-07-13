@@ -38,3 +38,9 @@ public enum XKNormalArrow {
         }
     }
 }
+
+public enum XKVerticalPosition {
+    case top
+    case middle
+    case bottom
+}

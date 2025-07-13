@@ -10,6 +10,16 @@ import Foundation
 
 public let XK_Ratio = XKConstants.ratio
 
+public func XKTranslucentTop(_ top: Double = 0) -> Double {
+    return XKConstants.navigationAndStatusBarHeight + top
+}
+public func XKSafeTop(_ top: Double = 0) -> Double {
+    return XKConstants.safeAreaTop + top
+}
+public func XKSafeBottom(_ bottom: Double = 0) -> Double {
+    return XKConstants.safeAreaBottom + bottom
+}
+
 public struct XKConstants {
     
     private static let _safeAreaBottom = is_iphoneX ? 34.0 : 0.0

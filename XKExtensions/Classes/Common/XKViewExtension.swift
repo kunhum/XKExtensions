@@ -25,6 +25,12 @@ private struct UIViewAssociatedKeys {
 
 public extension UIView {
     
+    class func makeRoundedView(background: UIColor = .white, cornerRadius: Double = 10) -> UIView {
+        let view = UIView(backgroundColor: background, cornerRadius: cornerRadius)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }
+    
     /// 渐变
     func addGradient(startPoint: CGPoint, endPoint: CGPoint, colors: [UIColor]) {
         if let sublayer = fetchCornerRadiusLayer() {
@@ -156,7 +162,12 @@ public extension UIButton {
         case bottom
     }
     
-    func set(position: ImagePosition, spacing: Double) {
+    /// set the position of image
+    /// - Parameters:
+    ///   - position: position
+    ///   - spacing: spacing
+    ///   - offset: in usual, top/bottom: >0 go down, <0 go up、 left/right: >0 go right, <0 go left
+    func set(position: ImagePosition, spacing: Double, offset: Double? = 0) {
         
         setTitle(currentTitle, for: .normal)
         setImage(currentImage, for: .normal)
@@ -173,11 +184,11 @@ public extension UIButton {
             imageOffsetX = (imageWidth + labelWidth) / 2 - imageWidth*0.5
         }
         // image中心移动的y距离
-        let imageOffsetY = labelHeight / 2 + spacing
+        var imageOffsetY = labelHeight / 2 + spacing
         // label中心移动的x距离
-        let labelOffsetX = (imageWidth + labelWidth/2) - (imageWidth + labelWidth) / 2
+        var labelOffsetX = (imageWidth + labelWidth/2) - (imageWidth + labelWidth) / 2
         //label中心移动的y距离
-        let labelOffsetY = imageHeight / 2 + spacing / 2
+        var labelOffsetY = imageHeight / 2 + spacing / 2
         
         let imageInsets = imageEdgeInsets
         let titleInsets = titleEdgeInsets
@@ -228,8 +239,22 @@ public extension UIButton {
                                            left: -labelOffsetX,
                                            bottom: labelOffsetY,
                                            right: labelOffsetX)
+            
         }
          
+        if let offset, (position == .top || position == .bottom) {
+            imageEdgeInsets.top += offset
+            imageEdgeInsets.bottom -= offset
+            titleEdgeInsets.top += offset
+            titleEdgeInsets.bottom -= offset
+        }
+        
+        if let offset, (position == .left || position == .right) {
+            imageEdgeInsets.left += offset
+            imageEdgeInsets.right -= offset
+            titleEdgeInsets.left += offset
+            titleEdgeInsets.right -= offset
+        }
         
     }
 }

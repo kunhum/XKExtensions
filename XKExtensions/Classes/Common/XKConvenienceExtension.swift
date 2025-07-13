@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SwifterSwift
 
 public extension UILabel {
     convenience init(text: String = "--",
@@ -29,7 +28,8 @@ public extension UILabel {
             self.backgroundColor = backgroundColor
         }
         if let cornerRadius {
-            self.cornerRadius = cornerRadius
+            layer.masksToBounds = true
+            layer.cornerRadius = abs(CGFloat(Int(cornerRadius * 100)) / 100)
         }
     }
 }
@@ -71,7 +71,8 @@ public extension UIButton {
             titleLabel?.numberOfLines = lines
         }
         if let radius = cornerRadius {
-            layer.cornerRadius = radius
+            layer.masksToBounds = true
+            layer.cornerRadius = abs(CGFloat(Int(radius * 100)) / 100)
         }
         if let color = backgroundColor {
             self.backgroundColor = backgroundColor
@@ -117,13 +118,14 @@ public extension UIView {
             self.backgroundColor = bg
         }
         if let cornerRadius = cornerRadius {
-            self.cornerRadius = cornerRadius
+            layer.masksToBounds = true
+            layer.cornerRadius = abs(CGFloat(Int(cornerRadius * 100)) / 100)
         }
         if let width = borderWidth {
-            self.borderWidth = width
+            layer.borderWidth = width
         }
         if let color = borderColor {
-            self.borderColor = color
+            layer.borderColor = color.cgColor
         }
         if let tag = tag {
             self.tag = tag

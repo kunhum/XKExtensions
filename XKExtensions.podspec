@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'XKExtensions'
-  s.version          = '1.0.13'
+  s.version          = '1.0.14'
   s.summary          = 'Swift项目常用Extension'
 
 # This description is used to generate tags and improve search results.
@@ -29,6 +29,7 @@ TODO: Add long description of the pod here.
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '13.0'
+  s.swift_version = '5.0'
 
   # s.source_files = 'XKExtensions/Classes/**/*'
   

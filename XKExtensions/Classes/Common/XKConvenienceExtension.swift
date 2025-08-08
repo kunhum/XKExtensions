@@ -15,6 +15,8 @@ public extension UILabel {
                      lines: Int = 1,
                      backgroundColor: UIColor? = nil,
                      cornerRadius: Double? = nil,
+                     borderWidth: Double? = nil,
+                     borderColor: UIColor? = nil,
                      translatesAutoresizingMaskIntoConstraints: Bool = false) {
         self.init()
         
@@ -24,6 +26,12 @@ public extension UILabel {
         self.textAlignment = alignment
         self.numberOfLines = lines
         self.translatesAutoresizingMaskIntoConstraints = translatesAutoresizingMaskIntoConstraints
+        if let borderWidth {
+            self.layer.borderWidth = borderWidth
+        }
+        if let borderColor {
+            self.layer.borderColor = borderColor.cgColor
+        }
         if let backgroundColor {
             self.backgroundColor = backgroundColor
         }

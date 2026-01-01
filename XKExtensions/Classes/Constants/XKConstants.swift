@@ -60,3 +60,7 @@ public struct XKConstants {
     
     public static let safeAreaBottom = safeAreaInsets.bottom
 }
+
+public extension Int {
+    public static let invalid = -100086
+}

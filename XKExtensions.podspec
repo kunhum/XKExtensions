@@ -35,6 +35,7 @@ TODO: Add long description of the pod here.
   
   s.subspec 'Common' do |ss|
     ss.dependency 'SwifterSwift'
+    ss.dependency 'MJRefresh'
     ss.source_files = "XKExtensions/Classes/Common/**/*"
   end
 
@@ -46,6 +47,13 @@ TODO: Add long description of the pod here.
 
   s.subspec 'Constants' do |ss|
     ss.source_files = "XKExtensions/Classes/Constants/**/*"
+  end
+  
+  s.subspec 'Network' do |ss|
+    ss.dependency 'RxSwift'
+    ss.dependency 'MJRefresh'
+    ss.dependency 'XKNetwork'
+    ss.source_files = "XKExtensions/Classes/Network/**/*"
   end
 
 end

@@ -381,6 +381,11 @@ public extension String {
         }
         return appending(space)
     }
+    
+    // MARK: 拼接
+    func xkAppending(_ string: String?) -> String {
+        appending(string ?? "")
+    }
 
 }
 // MARK: - 加密
@@ -462,4 +467,25 @@ public extension String {
         return result
     }
 
+}
+
+public extension String {
+    var provinceCode: String? {
+        guard count > 1 else { return nil }
+        return xk_subTo(index: 1) + "0000"
+    }
+    var cityCode: String? {
+        guard count > 3 else { return nil }
+        return xk_subTo(index: 3) + "00"
+    }
+}
+
+public extension String {
+    static let unavailable = "--"
+    static let empty = ""
+    
+    /// if text is available, displays it, otherwise displays the unavailable text
+    static func displayString(_ text: String?) -> String {
+        text ?? .unavailable
+    }
 }

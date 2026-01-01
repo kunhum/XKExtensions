@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import Photos
+import MJRefresh
 
 public class XKGradientLayer: CAGradientLayer {}
 
@@ -97,19 +98,6 @@ public extension UIView {
     func set(priority: UILayoutPriority, axis: NSLayoutConstraint.Axis = .horizontal) {
         setContentCompressionResistancePriority(priority, for: axis)
         setContentHuggingPriority(priority, for: axis)
-    }
-    
-    /// 空示意图
-    class func emptyView(image: UIImage? = nil,
-                         text: String? = "暂无数据",
-                         font: UIFont = .xk_pingFangSC(size: 14),
-                         textColor: UIColor = .secondText) -> UIView {
-        let imageView = UIImageView(image: image)
-        let label = UILabel(text: text ?? "", font: font, color: textColor, alignment: .center)
-        let stackView = UIStackView(arrangedSubviews: [imageView, label], axis: .vertical)
-        imageView.isHidden = image == nil
-        label.isHidden = text.isNilOrEmpty
-        return stackView
     }
     
     /// save view as image
@@ -256,5 +244,12 @@ public extension UIButton {
             titleEdgeInsets.right -= offset
         }
         
+    }
+}
+
+public extension UITableView {
+    func setup(header: MJRefreshHeader? = nil, footer: MJRefreshFooter? = nil) {
+        mj_header = header
+        mj_footer = footer
     }
 }

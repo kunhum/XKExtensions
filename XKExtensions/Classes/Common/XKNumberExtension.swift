@@ -123,6 +123,11 @@ public extension Int {
     func format(digits: Int = 0) -> String {
         return Double(self).format(digits: digits)
     }
+    func decimalStyleString() -> String? {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        return formatter.string(from: NSNumber(value: self))
+    }
 }
 
 public extension Double {
@@ -133,5 +138,11 @@ public extension Double {
     
     func format(digits: Int = 2) -> String {
         return String(format: "%.\(digits)f", self)
+    }
+    
+    func decimalStyleString() -> String? {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        return formatter.string(from: NSNumber(value: self))
     }
 }

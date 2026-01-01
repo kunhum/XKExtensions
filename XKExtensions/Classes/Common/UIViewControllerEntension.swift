@@ -253,3 +253,19 @@ public extension UINavigationBar {
     }
     
 }
+
+public extension UIImagePickerController {
+    class func commonPicker(delegate: (any UIImagePickerControllerDelegate & UINavigationControllerDelegate)?,
+                            sourceType: UIImagePickerController.SourceType = .photoLibrary,
+                            mediaTypes: [String] = ["public.image"],
+                            allowsEditing: Bool = false,
+                            modalPresentationStyle: UIModalPresentationStyle = .fullScreen) -> UIImagePickerController {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = delegate
+        imagePicker.sourceType = sourceType
+        imagePicker.mediaTypes = mediaTypes
+        imagePicker.allowsEditing = allowsEditing
+        imagePicker.modalPresentationStyle = modalPresentationStyle
+        return imagePicker
+    }
+}

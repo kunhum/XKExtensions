@@ -22,6 +22,18 @@ public extension UIImage {
 
         return animatedImageWithSource(source)
     }
+    
+    func compress(to maxKB: Int) -> Data? {
+        var compression: CGFloat = 1.0
+        let maxBytes = maxKB * 1024
+        var data = self.jpegData(compressionQuality: compression)
+        
+        while let d = data, d.count > maxBytes, compression > 0.1 {
+            compression -= 0.1
+            data = self.jpegData(compressionQuality: compression)
+        }
+        return data
+    }
 
 }
 

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'XKExtensions'
-  s.version          = '1.0.17'
+  s.version          = '1.0.18'
   s.summary          = 'Swift项目常用Extension'
 
 # This description is used to generate tags and improve search results.
@@ -47,6 +47,7 @@ TODO: Add long description of the pod here.
 
   s.subspec 'Constants' do |ss|
     ss.source_files = "XKExtensions/Classes/Constants/**/*"
+    ss.dependency 'XKExtensions/Common'
   end
   
   s.subspec 'Network' do |ss|

@@ -14,7 +14,7 @@ public func XKTranslucentTop(_ top: Double = 0) -> Double {
     return XKConstants.navigationAndStatusBarHeight + top
 }
 public func XKSafeTop(_ top: Double = 0) -> Double {
-    return XKConstants.safeAreaTop + top
+    return (XKConstants.safeAreaTop == .zero ? XKConstants.navigationAndStatusBarHeight : XKConstants.safeAreaTop) + top
 }
 public func XKSafeBottom(_ bottom: Double = 0) -> Double {
     return XKConstants.safeAreaBottom + bottom
@@ -42,18 +42,10 @@ public struct XKConstants {
     public static let tabBarHeight = 48.0
     
     public static let safeAreaInsets: UIEdgeInsets = {
-        var areaInsets: UIEdgeInsets = .zero
-        if #available(iOS 13.0, *),
-           let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-           let window = scene.windows.first {
-            areaInsets = window.safeAreaInsets
-        } else if #available(iOS 11.0, *),
-                  let window = UIApplication.shared.windows.first {
-            areaInsets = window.safeAreaInsets
-        } else {
-            areaInsets = UIEdgeInsets(top: _safeAreaTop, left: 0.0, bottom: _safeAreaBottom, right: 0.0)
+        if let insets = UIViewController.visible()?.view.safeAreaInsets {
+            return insets
         }
-        return areaInsets
+        return UIEdgeInsets(top: navigationAndStatusBarHeight, left: 0.0, bottom: _safeAreaBottom, right: 0.0)
     }()
     
     public static let safeAreaTop = safeAreaInsets.top

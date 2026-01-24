@@ -34,6 +34,19 @@ public extension UIImage {
         }
         return data
     }
+    
+    static func generateHDQRCode(text: String, size: CGFloat) -> UIImage? {
+        let data = text.data(using: .utf8)!
+        let filter = CIFilter(name: "CIQRCodeGenerator")!
+        filter.setValue(data, forKey: "inputMessage")
+        filter.setValue("Q", forKey: "inputCorrectionLevel")
+        let ciImage = filter.outputImage!
+        let scale = size / ciImage.extent.width
+        let transformed = ciImage.transformed(by: CGAffineTransform(scaleX: scale, y: scale))
+        let context = CIContext()
+        guard let cgImage = context.createCGImage(transformed, from: transformed.extent) else { return nil }
+        return UIImage(cgImage: cgImage)
+    }
 
 }
 

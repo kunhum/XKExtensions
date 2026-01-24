@@ -25,6 +25,19 @@ private struct UIViewAssociatedKeys {
 }
 
 public extension UIView {
+    public func backgroundColor(_ color: UIColor?) -> Self {
+        self.backgroundColor = color
+        return self
+    }
+    public func height(_ h: CGFloat) -> Self {
+        var frame = self.frame
+        frame.size.height = h
+        self.frame = frame
+        return self
+    }
+}
+
+public extension UIView {
     
     class func makeRoundedView(background: UIColor = .white, cornerRadius: Double = 10) -> UIView {
         let view = UIView(backgroundColor: background, cornerRadius: cornerRadius)
@@ -157,14 +170,19 @@ public extension UIButton {
     ///   - offset: in usual, top/bottom: >0 go down, <0 go up、 left/right: >0 go right, <0 go left
     func set(position: ImagePosition, spacing: Double, offset: Double? = 0) {
         
-        setTitle(currentTitle, for: .normal)
-        setImage(currentImage, for: .normal)
-        
         let imageWidth = currentImage?.size.width ?? 1
         let imageHeight = currentImage?.size.height ?? 1
-        let labelSize = titleLabel?.sizeThatFits(.zero)
-        let labelWidth = labelSize?.width ?? 1
-        let labelHeight = labelSize?.height ?? 1
+        let textLabel = UILabel()
+        textLabel.font = titleLabel?.font
+        if let currentTitle {
+            textLabel.text = currentTitle
+        }
+        if let currentAttributedTitle {
+            textLabel.attributedText = currentAttributedTitle
+        }
+        let labelSize = textLabel.sizeThatFits(.zero)
+        let labelWidth = labelSize.width ?? 1
+        let labelHeight = labelSize.height ?? 1
         
         // image中心移动的x距离
         var imageOffsetX = (imageWidth + labelWidth) / 2 - imageWidth

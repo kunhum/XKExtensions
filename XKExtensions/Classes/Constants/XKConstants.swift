@@ -50,7 +50,7 @@ public struct XKConstants {
     
     public static let safeAreaTop = safeAreaInsets.top
     
-    public static let safeAreaBottom = safeAreaInsets.bottom
+    public static let safeAreaBottom = _safeAreaBottom
 }
 
 public extension Int {

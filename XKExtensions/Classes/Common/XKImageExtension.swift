@@ -39,7 +39,7 @@ public extension UIImage {
         let data = text.data(using: .utf8)!
         let filter = CIFilter(name: "CIQRCodeGenerator")!
         filter.setValue(data, forKey: "inputMessage")
-        filter.setValue("Q", forKey: "inputCorrectionLevel")
+        filter.setValue("M", forKey: "inputCorrectionLevel")
         let ciImage = filter.outputImage!
         let scale = size / ciImage.extent.width
         let transformed = ciImage.transformed(by: CGAffineTransform(scaleX: scale, y: scale))

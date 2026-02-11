@@ -23,7 +23,7 @@ public extension PHPickerResult {
     }
 }
 
-@available(iOS 14, *)
+@available(iOS 15, *)
 public extension PHPickerViewController {
     static func picker(limit: Int = 3,
                        filter: PHPickerFilter = .images,

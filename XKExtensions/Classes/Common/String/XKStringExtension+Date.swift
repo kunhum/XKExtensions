@@ -14,6 +14,14 @@ public extension String {
         dateFormatter.dateFormat = format
         return dateFormatter.date(from: self)
     }
+    
+    func dateString(fromFormat: String, toFormat: String) -> String? {
+        let dateFormat = DateFormatter()
+        dateFormat.dateFormat = fromFormat
+        guard let date = dateFormat.date(from: self) else { return nil }
+        dateFormat.dateFormat = toFormat
+        return dateFormat.string(from: date)
+    }
 }
 
 @objc public extension NSString {

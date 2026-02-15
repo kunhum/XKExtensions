@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'XKExtensions'
-  s.version          = '1.0.21'
+  s.version          = '1.0.22'
   s.summary          = 'Swift项目常用Extension'
 
 # This description is used to generate tags and improve search results.

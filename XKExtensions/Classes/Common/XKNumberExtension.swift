@@ -145,4 +145,17 @@ public extension Double {
         formatter.numberStyle = .decimal
         return formatter.string(from: NSNumber(value: self))
     }
+    
+    func removeZeroString() -> String {
+        var str = String(self)
+        if str.contains(".") {
+            while str.last == "0" {
+                str.removeLast()
+            }
+            if str.last == "." {
+                str.removeLast()
+            }
+        }
+        return str
+    }
 }

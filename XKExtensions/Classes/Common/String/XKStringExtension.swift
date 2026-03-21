@@ -489,3 +489,7 @@ public extension String {
         text ?? .unavailable
     }
 }
+
+public extension String {
+    
+}

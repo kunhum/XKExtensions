@@ -98,5 +98,28 @@ extension Date {
         return dateStr == nowStr
     }
 
+    // MARK: 格式化日期显示
+    public func xk_formatDisplayDate(dateFormat: String = "yyyy-MM-dd HH:mm") -> String {
+        let calendar = Calendar.current
+        let now = Date(timeIntervalSinceNow: 0)
+
+        if calendar.isDateInToday(self) {
+            let timeFormatter = DateFormatter()
+            timeFormatter.dateFormat = "HH:mm"
+            return "今天 \(timeFormatter.string(from: self))"
+        }
+
+        let isThisYear = calendar.component(.year, from: self) == calendar.component(.year, from: now)
+        if isThisYear {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "MM-dd HH:mm"
+            return formatter.string(from: self)
+        }
+
+        let fullFormatter = DateFormatter()
+        fullFormatter.dateFormat = dateFormat
+        return fullFormatter.string(from: self)
+    }
+
 }
 
